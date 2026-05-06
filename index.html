@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0" />
+  <meta name="theme-color" content="#6c3aff" />
+  <title id="pageTitle">B13 TECH WIFIZONE</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./Yollando/style.css">
+  <script type="text/javascript" src="md5.js"></script>
+
+</head>
+
+<body>
+
+  <div class="aurora">
+    <div class="aurora-blob ab1"></div>
+    <div class="aurora-blob ab2"></div>
+    <div class="aurora-blob ab3"></div>
+    <div class="aurora-blob ab4"></div>
+  </div>
+
+  <!-- Hidden Yollando form -->
+  <form name="sendin" action="http://yollando.com/login" method="post" style="display:none;">
+    <input type="hidden" name="username" />
+    <input type="hidden" name="password" />
+    <input type="hidden" name="dst" value="http://192.168.0.1/" />
+    <input type="hidden" name="popup" value="true" />
+  </form>
+
+  <div class="wrapper">
+
+    <!-- Orb -->
+    <div class="orb-wrap">
+      <div class="orb-bg"></div>
+      <div class="spin-ring"></div>
+      <div class="orb">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12.55a11 11 0 0 1 14.08 0"/>
+          <path d="M1.42 9a16 16 0 0 1 21.16 0"/>
+          <path d="M8.53 16.11a6 6 0 0 1 6.95 0"/>
+          <circle cx="12" cy="20" r="1" fill="currentColor"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Brand -->
+    <div class="brand">
+      <div class="brand-name">B13 TECH WIFIZONE</div>
+      <div class="brand-tag">
+        <span class="dot-live"></span>
+        Réseau actif · Connexion sécurisée
+      </div>
+    </div>
+
+    <!-- Card -->
+    <div class="card">
+      <div class="tabs" role="tablist">
+        <button class="tab active" id="tabVoucher" role="tab" aria-selected="true" onclick="switchMode('voucher')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="10" rx="2"/><path d="M16 7v-1a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v1"/><line x1="12" y1="12" x2="12" y2="12.01"/></svg>
+          Voucher
+        </button>
+        <button class="tab" id="tabMember" role="tab" aria-selected="false" onclick="switchMode('member')">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+          Membre
+        </button>
+        <button class="tab" id="tabQr" role="tab" aria-selected="false" onclick="window.location='https://laksa19.github.io/myqr'">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="3" height="3"/><rect x="18" y="18" width="3" height="3"/></svg>
+          QR Code
+        </button>
+      </div>
+
+      <div class="notice" id="notice"></div>
+
+      <div id="voucherSection">
+        <div class="field">
+          <label for="voucherCode">Code Voucher</label>
+          <input type="text" id="voucherCode" placeholder="ex: VCH-12345"
+            autocomplete="off" autocorrect="off" autocapitalize="characters" spellcheck="false" />
+        </div>
+      </div>
+
+      <div id="memberSection" style="display:none;">
+        <div class="field">
+          <label for="memberUser">Nom d'utilisateur</label>
+          <input type="text" id="memberUser" placeholder="Votre identifiant" autocomplete="username" />
+        </div>
+        <div class="field">
+          <label for="memberPass">Mot de passe</label>
+          <input type="password" id="memberPass" placeholder="••••••••" autocomplete="current-password" />
+        </div>
+      </div>
+
+      <div class="qr-section" id="qrSection">
+        <div class="qr-box">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="6">
+            <rect x="10" y="10" width="30" height="30" rx="4"/>
+            <rect x="60" y="10" width="30" height="30" rx="4"/>
+            <rect x="10" y="60" width="30" height="30" rx="4"/>
+            <rect x="18" y="18" width="14" height="14" rx="2" fill="currentColor" stroke="none"/>
+            <rect x="68" y="18" width="14" height="14" rx="2" fill="currentColor" stroke="none"/>
+            <rect x="18" y="68" width="14" height="14" rx="2" fill="currentColor" stroke="none"/>
+            <rect x="60" y="60" width="10" height="10" rx="1" fill="currentColor" stroke="none"/>
+            <rect x="76" y="60" width="14" height="6" rx="1" fill="currentColor" stroke="none"/>
+            <rect x="60" y="76" width="6" height="14" rx="1" fill="currentColor" stroke="none"/>
+            <rect x="76" y="80" width="14" height="10" rx="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <p>Scannez votre QR code<br>pour vous connecter instantanément</p>
+      </div>
+
+      <button class="connect-btn" id="connectBtn" onclick="doLogin()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        Se connecter
+      </button>
+
+      <div class="support">
+        Un problème ?&nbsp;
+        <a href="tel:0389903766">038 990 3766</a>
+        &nbsp;·&nbsp;
+        <a href="tel:0325779993">032 577 9993</a>
+      </div>
+    </div>
+
+    <!-- Pricing -->
+    <div class="pricing">
+      <div class="pricing-label">Nos tarifs</div>
+      <div class="pricing-row">
+        <div class="pill">
+          <div class="pill-icon">⚡</div>
+          <div class="pill-duration">1 heure</div>
+          <div class="pill-price">500 Ar</div>
+        </div>
+        <div class="pill">
+          <div class="pill-icon">🕐</div>
+          <div class="pill-duration">2 heures</div>
+          <div class="pill-price">1 000 Ar</div>
+        </div>
+        <div class="pill">
+          <div class="pill-icon">🌟</div>
+          <div class="pill-duration">1 mois</div>
+          <div class="pill-price">15 000 Ar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer">
+      © 2026 B13 City &nbsp;·&nbsp;
+      Powered by <a href="https://laksa19.github.io" target="_blank">@Yollando</a>
+    </div>
+
+  </div>
+
+  <script src="./Yollando/js.js"></script>
+</body>
+</html>
